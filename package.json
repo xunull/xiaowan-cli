@@ -1,0 +1,33 @@
+{
+  "name": "xiaowan-cli",
+  "version": "0.0.3",
+  "description": "xiaowan cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "xiaowan": "bin/xiaowan",
+    "xiaowan-init": "bin/xiaowan-init"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xunull/xiaowan-cli.git"
+  },
+  "keywords": [
+    "xiaowan",
+    "cli"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "download-git-repo": "^0.2.1",
+    "inquirer": "^1.2.3"
+  },
+  "author": "xunull",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xunull/xiaowan-cli/issues"
+  },
+  "homepage": "https://github.com/xunull/xiaowan-cli#readme"
+}

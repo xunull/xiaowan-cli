@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+var chalk = require('chalk');
+var inquirer = require('inquirer');
+var download = require('download-git-repo');
+var path = require('path');
+
+program
+    .usage('project-name');
+
+program.on('--help', function () {
+    console.log('  Examples:')
+    console.log()
+    console.log(chalk.gray('    # create a new project with an official template'))
+    console.log('    $ xiaowan init test')
+    console.log()
+
+})
+
+/**
+ * Help.
+ */
+function help() {
+    program.parse(process.argv)
+    if (program.args.length === 0) return program.help()
+}
+help()
+
+/**
+ * 判断项目名是否合法
+ */
+let projectName = program.args[0];
+if (projectName.startsWith('.') || projectName.startsWith('/')) {
+    console.log('工程名称不合法');
+    process.exit(1);
+}
+let targetPath = process.cwd()
+targetPath = path.resolve(targetPath, program.args[0])
+bootstrap()
+function bootstrap() {
+    download('xunull/xiaowan-vue', targetPath, function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('xiaowan init success');
+        }
+    });
+}
+
+process.on('exit', function () {
+    console.log();
+})
